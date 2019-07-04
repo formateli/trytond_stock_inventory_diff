@@ -1,4 +1,4 @@
-Inventory diff
-##############
+Stock Inventory Diff
+####################
 
-Shows a product difference field in stock inventory form.
+Difference calculation between 'Quantity' and 'Expected Quantity' fields.

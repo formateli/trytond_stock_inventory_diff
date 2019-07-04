@@ -8,7 +8,7 @@ from trytond.pyson import Eval
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
-__all__ = ['InventoryLine',]
+__all__ = ['InventoryLine']
 
 
 class InventoryLine(metaclass=PoolMeta):
@@ -16,7 +16,8 @@ class InventoryLine(metaclass=PoolMeta):
 
     diff_quantity = fields.Function(
         fields.Float(
-            'Diff', digits=(16, Eval('unit_digits', 2))),
+            'Diff', digits=(16, Eval('unit_digits', 2)),
+            depends=['unit_digits']),
             'get_diff_quantity')
 
     @fields.depends('product', 'quantity', 'expected_quantity')
