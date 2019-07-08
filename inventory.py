@@ -23,6 +23,7 @@ class InventoryLine(metaclass=PoolMeta):
     @fields.depends('product', 'quantity', 'expected_quantity')
     def on_change_product(self):
         super(InventoryLine, self).on_change_product()
+        self.diff_quantity = None
         if self.product:
             self.diff_quantity = self.get_diff_quantity()
 
